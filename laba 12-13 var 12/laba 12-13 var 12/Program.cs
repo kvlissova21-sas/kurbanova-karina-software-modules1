@@ -52,17 +52,12 @@ bool isCity = (answer == "да");
 
 int limit = isCity ? 60 : 90;
 
-switch (speed)
+string result = speed switch
 {
-    case int s when s > limit:
-        Console.WriteLine($"Превышение! Ограничение {limit} км/ч.");
-        break;
-    case int s when s <= limit && s >= 0:
-        Console.WriteLine($"Скорость в норме!");
-        break;
-    case int s when s < 0:
-        Console.WriteLine("Ошибка: скорость не может быть отрицательной!");
-        break;
-}
+    < 0 => "Ошибка: скорость не может быть отрицательной!",
+    var s when s <= limit => "Скорость в норме!",
+    var s => $"Превышение! Ограничение {limit} км/ч."
+};
 
+Console.WriteLine(result);
 Console.ReadLine();

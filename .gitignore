@@ -1,2 +1,7 @@
 test.txt
 .vs/
+# Visual Studio build results
+bin/
+obj/
+*.user
+*.suo
